@@ -1,0 +1,304 @@
+.body {
+  background-color: white;
+  font-family: "Heebo", sans-serif;
+  padding: 3em 0em;
+}
+.container {
+  width: 90%;
+  margin: auto;
+  margin-bottom: 3em;
+  padding: 1em;
+  box-shadow: 0px 2px 25px 5px rgba(0, 0, 0, 0.5);
+  border-radius: 15px;
+  background: rgba(255, 255, 255, 0.1);
+  border-top: 1px solid rgba(255, 255, 255, 0.5);
+  border-top: 1px solid rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(5px);
+}
+
+.navBar {
+  display: flex;
+  flex-direction: row-reverse;
+  margin-bottom: 1em;
+}
+
+.navList {
+  list-style: none;
+  display: flex;
+}
+.navLink {
+  font-size: 1.1em;
+  font-weight: bold;
+  text-decoration: none;
+  color: black;
+}
+.navLink:hover {
+  opacity: 0.7;
+}
+.navItem {
+  padding: 0em 1em;
+}
+.changeMode {
+  font-size: 1em;
+  font-weight: bold;
+  border: none;
+  background: none;
+  padding: 0em 1em;
+  margin-right: 50em;
+}
+
+.changeMode:hover {
+  border-bottom: 2.5px solid black;
+}
+
+section {
+  margin-top: 1em;
+  padding: 2em 5em;
+  font: bold;
+}
+.content {
+  padding: 1em;
+  box-shadow: 20px 20px 50px rgba(0, 0, 0, 0.5);
+  border-radius: 15px;
+  background: rgba(255, 255, 255, 0.1);
+  border-top: 1px solid rgba(255, 255, 255, 0.5);
+  border-top: 1px solid rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(5px);
+}
+
+/* home section */
+.home {
+  text-align: center;
+}
+.homeTitle {
+  font-size: 5em;
+  display: inline-block;
+}
+.logo {
+  font-size: 15em;
+  display: inline-block;
+}
+.home a {
+  position: relative;
+  display: inline-block;
+  padding: 0.8em;
+  font-size: 1.2em;
+  margin-top: 15px;
+  border-radius: 20px;
+  text-decoration: none;
+  background-color: black;
+  color: white;
+  font-weight: 500;
+  border: 2px solid;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+.home a:hover {
+  background-color: white;
+  color: black;
+  border: 2px solid;
+  font-weight: bold;
+}
+
+/* skills section */
+.skills {
+  padding-top: 5em;
+}
+.skills h3 {
+  text-align: center;
+  margin: 3em 0em;
+}
+.title {
+  font-size: 3em;
+  text-align: center;
+  color: rgb(128, 128, 128);
+}
+.skillBar {
+  background: rgba(255, 255, 255, 0.1);
+  width: 40em;
+  border-radius: 15px;
+  padding: 2em 3em;
+  margin: auto;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+}
+.skillBar .bar {
+  margin: 1.5em 0;
+}
+.skillBar .bar:first-child {
+  margin-top: 0px;
+}
+.skillBar .bar .info span {
+  font-size: 1em;
+  font-weight: 500;
+}
+.skillBar .bar .progress {
+  position: relative;
+  height: 1em;
+  width: 100%;
+  background-color: #f0f0f0;
+  border-radius: 15px;
+  transform: scaleX(0);
+  transform-origin: left;
+  box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.5),
+    0px 1px rgba(255, 255, 255, 0.5);
+  animation: animate 0.6s cubic-bezier(1, 0, 0.5, 1) forwards;
+}
+
+.bar .progress span {
+  height: 100%;
+  width: 80%;
+  background: linear-gradient(45deg, darkgray, lightgray);
+  position: absolute;
+  border-radius: 15px;
+  transform: scaleX(0);
+  transform-origin: left;
+  animation: animate 1s 0.3s cubic-bezier(1, 0, 0.5, 1) forwards;
+}
+
+@keyframes animate {
+  100% {
+    transform: scaleX(1);
+  }
+}
+.bar .progress.html span {
+  width: 70%;
+}
+.bar .progress.css span {
+  width: 70%;
+}
+.bar .progress.js span {
+  width: 60%;
+}
+.bar .progress.react span {
+  width: 40%;
+}
+.bar .progress span::before {
+  position: absolute;
+  content: "";
+  right: 0;
+  top: -10px;
+  height: 0;
+  width: 0;
+  border: 7px solid transparent;
+  border-bottom-width: 0px;
+  border-right-width: 0px;
+  border-top-color: black;
+}
+
+.bar .progress span::after {
+  position: absolute;
+  right: 0;
+  top: -28px;
+  color: white;
+  font-size: 0.8em;
+  font-weight: 500;
+  background: black;
+  padding: 1px 8px;
+  border-radius: 5px;
+}
+/* js로 바꾸기  */
+.bar .progress.html span::after {
+  content: "70%";
+}
+.bar .progress.css span::after {
+  content: "70%";
+}
+.bar .progress.js span::after {
+  content: "60%";
+}
+.bar .progress.react span::after {
+  content: "40%";
+}
+
+.icon,
+.social {
+  display: flex;
+  text-align: center;
+  align-items: center;
+}
+.social {
+  padding-bottom: 5em;
+}
+.icons {
+  width: 20%;
+  text-align: center;
+  padding: 1em;
+  margin: 0.5em;
+  font-weight: bold;
+}
+.social .icons {
+  margin: auto;
+}
+.social .icons svg {
+  width: 50%;
+}
+.icons a {
+  text-decoration: none;
+  color: black;
+}
+
+/* about */
+.cardContainer {
+  display: flex;
+  flex-direction: column;
+}
+.arrows {
+  display: flex;
+  margin: auto;
+  height: 10em;
+}
+.left-arrow,
+.right-arrow {
+  font-size: 3em;
+  padding: 0.5em;
+  padding-bottom: 0;
+  position: relative;
+  cursor: pointer;
+}
+
+.cards {
+  margin: auto;
+  transition: 0.5s;
+  display: flex;
+}
+.card {
+  width: 30em;
+  height: 20em;
+  padding: 1em;
+  border-radius: 5px;
+  /* background: rgba(255, 255, 255, 0.1); */
+  box-shadow: 1px 1px 12px 5px rgba(0, 0, 0, 0.28);
+  border-top: 1px solid rgba(255, 255, 255, 0.5);
+  border-top: 1px solid rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(5px);
+  display: none;
+}
+
+.card h3 {
+  text-align: center;
+}
+.card.active {
+  display: block;
+}
+
+/* contact */
+#disqus_thread {
+  margin: 1em 0em;
+}
+.good {
+  align-items: center;
+  text-align: center;
+}
+.goodBtn {
+  border-radius: 30px;
+  border: 3px solid rgb(128, 128, 128);
+  font-size: 2em;
+  padding: 0.2em 0.4em;
+  background: none;
+}
+.goodBtn:hover {
+  background-color: rgb(128, 128, 128);
+}
+
+.social {
+  display: none;
+}
