@@ -245,10 +245,8 @@ main {
   /* margin: auto; */
   transition: 0.5s;
   display: flex;
-  background-color: red;
 }
 .card {
-  background-color: rebeccapurple;
   width: 30em;
   height: 20em;
   padding: 3em;
@@ -260,7 +258,6 @@ main {
 }
 .left-arrow,
 .right-arrow {
-  background-color: blue;
   height: 2em;
   margin: auto;
   text-align: center;
