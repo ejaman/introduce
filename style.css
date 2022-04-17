@@ -241,31 +241,28 @@ main {
   flex-direction: column;
 }
 .cards {
-  margin: auto;
+  width: 100%;
+  /* margin: auto; */
   transition: 0.5s;
   display: flex;
+  background-color: red;
 }
 .card {
+  background-color: rebeccapurple;
   width: 30em;
   height: 20em;
   padding: 3em;
   text-align: center;
-  /* box-shadow: 1px 1px 12px 5px rgba(0, 0, 0, 0.28); */
   border-top: 1px solid rgba(255, 255, 255, 0.5);
   border-top: 1px solid rgba(255, 255, 255, 0.5);
   backdrop-filter: blur(5px);
   display: none;
 }
-.card h3 {
-  padding: 1em 0;
-}
-.card.active {
-  display: block;
-}
 .left-arrow,
 .right-arrow {
+  background-color: blue;
   height: 2em;
-  margin: 3em;
+  margin: auto;
   text-align: center;
   font-size: 2em;
   padding: 0.5em;
@@ -274,6 +271,12 @@ main {
 .left-arrow:hover,
 .right-arrow:hover {
   opacity: 0.8;
+}
+.card h3 {
+  padding: 1em 0;
+}
+.card.active {
+  display: block;
 }
 
 .contact {
@@ -286,13 +289,12 @@ main {
 }
 .thumbsUp {
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
-  width: 30%;
+  width: 30em;
   padding: 3em;
   margin: auto;
   border-radius: 50%;
 }
-.thumbsUp:hover {
-}
+
 .thumbsUp h3 {
   margin: 1em 0;
 }
@@ -324,4 +326,18 @@ main {
 }
 .comment p {
   margin: 3em 0;
+}
+.screen {
+  display: none;
+}
+
+@media all and (max-width: 1025px) {
+  section {
+    display: none;
+  }
+  .screen {
+    display: inline;
+    font-size: 3em;
+    padding: 5.5em;
+  }
 }
