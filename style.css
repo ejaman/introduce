@@ -1,62 +1,64 @@
-.body {
-  background-color: white;
+@import url("https://fonts.googleapis.com/css2?family=Heebo&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
   font-family: "Heebo", sans-serif;
-  padding: 3em 0em;
 }
-.container {
-  width: 90%;
-  margin: auto;
-  margin-bottom: 3em;
-  padding: 1em;
-  box-shadow: 0px 2px 25px 5px rgba(0, 0, 0, 0.5);
-  border-radius: 15px;
-  background: rgba(255, 255, 255, 0.1);
-  border-top: 1px solid rgba(255, 255, 255, 0.5);
-  border-top: 1px solid rgba(255, 255, 255, 0.5);
-  backdrop-filter: blur(5px);
-}
-
-.navBar {
+section {
+  width: 100%;
+  min-height: 100vh;
+  padding: 7em 5em;
   display: flex;
-  flex-direction: row-reverse;
-  margin-bottom: 1em;
+  justify-content: space-between;
+  align-items: center;
 }
-
-.navList {
-  list-style: none;
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 1em 4em;
   display: flex;
+  border-bottom: 1px solid;
+  justify-content: space-between;
+  background-color: white;
+  z-index: 1;
 }
-.navLink {
+header .colorBtn {
+  position: relative;
   font-size: 1.1em;
-  font-weight: bold;
-  text-decoration: none;
-  color: black;
-}
-.navLink:hover {
-  opacity: 0.7;
-}
-.navItem {
-  padding: 0em 1em;
-}
-.changeMode {
-  font-size: 1em;
   font-weight: bold;
   border: none;
   background: none;
-  padding: 0em 1em;
-  margin-right: 50em;
+  padding: 0 0.5em;
+  border-radius: 5px;
+}
+header .colorBtn:hover {
+  opacity: 0.5;
 }
 
-.changeMode:hover {
-  border-bottom: 2.5px solid black;
+header ul {
+  position: relative;
+  display: flex;
 }
-
-section {
-  margin-top: 1em;
-  padding: 2em 5em;
-  font: bold;
+header ul li {
+  list-style: none;
 }
-.content {
+header ul li a {
+  text-decoration: none;
+  display: inline-block;
+  color: black;
+  font-size: 1em;
+  font-weight: bold;
+  margin-left: 2em;
+}
+header ul li a:hover {
+  opacity: 0.5;
+}
+main {
+  /* section에 패딩떄문 */
+  width: 100%;
   padding: 1em;
   box-shadow: 20px 20px 50px rgba(0, 0, 0, 0.5);
   border-radius: 15px;
@@ -65,56 +67,58 @@ section {
   border-top: 1px solid rgba(255, 255, 255, 0.5);
   backdrop-filter: blur(5px);
 }
-
-/* home section */
 .home {
+  width: 100%;
+  padding: 5em 16em;
+  justify-content: space-between;
+  align-items: center;
   text-align: center;
 }
-.homeTitle {
-  font-size: 5em;
-  display: inline-block;
-}
-.logo {
-  font-size: 15em;
-  display: inline-block;
-}
-.home a {
+.home .textbox {
   position: relative;
-  display: inline-block;
-  padding: 0.8em;
-  font-size: 1.2em;
-  margin-top: 15px;
-  border-radius: 20px;
-  text-decoration: none;
-  background-color: black;
-  color: white;
-  font-weight: 500;
-  border: 2px solid;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  max-width: 700px;
 }
-.home a:hover {
-  background-color: white;
-  color: black;
-  border: 2px solid;
+.home .textbox h2 {
+  font-size: 5em;
+  line-height: 1.4em;
   font-weight: bold;
 }
+.home .textbox .logo {
+  font-size: 7em;
+}
+.home .textbox a {
+  display: inline-block;
+  left: 1px;
+  margin-top: 2em;
+  padding: 0.5em 1em;
+  background-color: white;
+  color: black;
+  border-radius: 40px;
+  border: 2px solid;
+  font-weight: bold;
+  text-decoration: none;
+}
+.home .textbox a:hover {
+  opacity: 0.5;
+}
 
-/* skills section */
 .skills {
-  padding-top: 5em;
-}
-.skills h3 {
+  padding: 5em;
   text-align: center;
-  margin: 3em 0em;
 }
-.title {
-  font-size: 3em;
-  text-align: center;
-  color: rgb(128, 128, 128);
+.skills h1 {
+  font-size: 2em;
+  padding: 1em;
+  font-weight: lighter;
 }
+.currentSkill h3 {
+  padding: 1em 0;
+}
+
 .skillBar {
   background: rgba(255, 255, 255, 0.1);
-  width: 40em;
+  text-align: left;
+  width: 50%;
   border-radius: 15px;
   padding: 2em 3em;
   margin: auto;
@@ -142,7 +146,6 @@ section {
     0px 1px rgba(255, 255, 255, 0.5);
   animation: animate 0.6s cubic-bezier(1, 0, 0.5, 1) forwards;
 }
-
 .bar .progress span {
   height: 100%;
   width: 80%;
@@ -151,25 +154,12 @@ section {
   border-radius: 15px;
   transform: scaleX(0);
   transform-origin: left;
-  animation: animate 1s 0.3s cubic-bezier(1, 0, 0.5, 1) forwards;
+  animation: animate 1s 2s cubic-bezier(1, 0, 0.5, 1) forwards;
 }
-
 @keyframes animate {
   100% {
     transform: scaleX(1);
   }
-}
-.bar .progress.html span {
-  width: 70%;
-}
-.bar .progress.css span {
-  width: 70%;
-}
-.bar .progress.js span {
-  width: 60%;
-}
-.bar .progress.react span {
-  width: 40%;
 }
 .bar .progress span::before {
   position: absolute;
@@ -183,7 +173,6 @@ section {
   border-right-width: 0px;
   border-top-color: black;
 }
-
 .bar .progress span::after {
   position: absolute;
   right: 0;
@@ -196,6 +185,18 @@ section {
   border-radius: 5px;
 }
 /* js로 바꾸기  */
+.bar .progress.html span {
+  width: 70%;
+}
+.bar .progress.css span {
+  width: 70%;
+}
+.bar .progress.js span {
+  width: 60%;
+}
+.bar .progress.react span {
+  width: 40%;
+}
 .bar .progress.html span::after {
   content: "70%";
 }
@@ -209,52 +210,36 @@ section {
   content: "40%";
 }
 
-.icon,
-.social {
+.intrest {
+  text-align: center;
+  margin-top: 5em;
+}
+.container {
+  padding: 3em;
   display: flex;
-  text-align: center;
-  align-items: center;
 }
-.social {
-  padding-bottom: 5em;
-}
-.icons {
-  width: 20%;
-  text-align: center;
-  padding: 1em;
-  margin: 0.5em;
-  font-weight: bold;
-}
-.social .icons {
+.container .sub {
+  padding: 0.5em 1em;
+  width: 15%;
   margin: auto;
-}
-.social .icons svg {
-  width: 50%;
-}
-.icons a {
-  text-decoration: none;
-  color: black;
+  font-weight: bold;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
 }
 
-/* about */
+.about {
+  width: 100%;
+  padding: 3em;
+  text-align: center;
+}
+.about h1 {
+  font-size: 2em;
+  font-weight: lighter;
+}
 .cardContainer {
+  padding: 3em;
   display: flex;
   flex-direction: column;
 }
-.arrows {
-  display: flex;
-  margin: auto;
-  height: 10em;
-}
-.left-arrow,
-.right-arrow {
-  font-size: 3em;
-  padding: 0.5em;
-  padding-bottom: 0;
-  position: relative;
-  cursor: pointer;
-}
-
 .cards {
   margin: auto;
   transition: 0.5s;
@@ -263,42 +248,80 @@ section {
 .card {
   width: 30em;
   height: 20em;
-  padding: 1em;
-  border-radius: 5px;
-  /* background: rgba(255, 255, 255, 0.1); */
-  box-shadow: 1px 1px 12px 5px rgba(0, 0, 0, 0.28);
+  padding: 3em;
+  text-align: center;
+  /* box-shadow: 1px 1px 12px 5px rgba(0, 0, 0, 0.28); */
   border-top: 1px solid rgba(255, 255, 255, 0.5);
   border-top: 1px solid rgba(255, 255, 255, 0.5);
   backdrop-filter: blur(5px);
   display: none;
 }
-
 .card h3 {
-  text-align: center;
+  padding: 1em 0;
 }
 .card.active {
   display: block;
 }
-
-/* contact */
-#disqus_thread {
-  margin: 1em 0em;
+.left-arrow,
+.right-arrow {
+  height: 2em;
+  margin: 3em;
+  text-align: center;
+  font-size: 2em;
+  padding: 0.5em;
+  cursor: pointer;
 }
-.good {
-  align-items: center;
+.left-arrow:hover,
+.right-arrow:hover {
+  opacity: 0.8;
+}
+
+.contact {
   text-align: center;
 }
-.goodBtn {
-  border-radius: 30px;
-  border: 3px solid rgb(128, 128, 128);
+.contact h1 {
   font-size: 2em;
-  padding: 0.2em 0.4em;
+  padding: 1em;
+  font-weight: lighter;
+}
+.thumbsUp {
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+  width: 30%;
+  padding: 3em;
+  margin: auto;
+  border-radius: 50%;
+}
+.thumbsUp:hover {
+}
+.thumbsUp h3 {
+  margin: 1em 0;
+}
+.goodBtn {
+  margin: 1em 0;
   background: none;
+  border: none;
+  border-bottom: 2px solid white;
+  padding: 0 0.5em;
+  font-size: 1.5em;
 }
 .goodBtn:hover {
-  background-color: rgb(128, 128, 128);
+  opacity: 0.5;
+  border-bottom: 2px solid;
 }
-
 .social {
+  padding: 5em;
   display: none;
+}
+.social .socialIcon {
+  padding: 0.5em 1em;
+  width: 15%;
+  margin: auto;
+}
+.social .socialIcon a {
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+}
+.comment p {
+  margin: 3em 0;
 }

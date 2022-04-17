@@ -1,38 +1,53 @@
-const ColorBtn = document.querySelector(".changeMode");
-const icons = document.querySelectorAll(".icons");
-const a = document.querySelectorAll(".navLink");
-
+const ColorBtn = document.querySelector(".colorBtn");
+const icons = document.querySelectorAll(".sub");
+const social = document.querySelectorAll(".socialIcon");
+const a = document.querySelectorAll(".link");
+const body = document.querySelector("body");
+const nav = document.querySelector("header");
+const goodBtn = document.querySelector(".goodBtn");
+ColorBtn.addEventListener("click", (event) => {
+  colorChange();
+});
+goodBtn.addEventListener("click", () => {
+  console.log("click");
+  init();
+});
 const colorChange = () => {
-  if (ColorBtn.value === "Black") {
+  if (ColorBtn.innerHTML === "Black") {
     body.style.backgroundColor = "black";
     body.style.color = "white";
+    nav.style.backgroundColor = "black";
     ColorBtn.style.color = "white";
-
     Object.values(icons).map(
       (icon) => (icon.style.backgroundColor = "#fcfcfc25")
     );
+    Object.values(social).map((icon) => {
+      icon.style.backgroundColor = "#fcfcfc25";
+      icon.childNodes[1].style.color = "white";
+    });
     Object.values(a).map((icon) => (icon.style.color = "white"));
-    ColorBtn.value = "White";
+
+    ColorBtn.innerHTML = "White";
   } else {
     body.style.backgroundColor = "white";
     body.style.color = "black";
     ColorBtn.style.color = "black";
+    nav.style.backgroundColor = "white";
     Object.values(icons).map((icon) => (icon.style.backgroundColor = "none"));
+    Object.values(social).map((icon) => {
+      icon.style.backgroundColor = "none";
+      icon.childNodes[1].style.color = "black";
+    });
     Object.values(a).map((icon) => (icon.style.color = "black"));
-    ColorBtn.value = "Black";
+    ColorBtn.innerHTML = "Black";
   }
 };
-document.getElementById;
-const body = document.querySelector("body");
-ColorBtn.addEventListener("click", (event) => {
-  colorChange();
-});
 
-document.querySelector(".right-arrow").onclick = function () {
+document.querySelector(".right-arrow").onclick = () => {
   var currentSlide = document.querySelector(".card.active");
   var nextSlide = currentSlide.nextElementSibling;
   if (nextSlide === null) {
-    nextSlide = currentSlide.parentElement.firstElementChild;
+    nextSlide = currentSlide.parentElement.childNodes[1];
   }
   currentSlide.animate(
     {
@@ -99,9 +114,13 @@ VanillaTilt.init(document.querySelectorAll(".glare"), {
   glare: true,
   "max-glare": 1,
 });
+VanillaTilt.init(document.querySelectorAll(".table"), {
+  max: 10,
+  speed: 200,
+});
 VanillaTilt.init(document.querySelectorAll(".logo"), {
-  max: 30,
-  speed: 500,
+  max: 50,
+  speed: 700,
 });
 
 // 댓글창
@@ -114,12 +133,11 @@ VanillaTilt.init(document.querySelectorAll(".logo"), {
   (d.head || d.body).appendChild(s);
 })();
 
-//// Teachable Machine
-//More API functions here:
+// More API functions here:
 // https://github.com/googlecreativelab/teachablemachine-community/tree/master/libraries/image
 
 // the link to your model provided by Teachable Machine export panel
-const URL = "https://teachablemachine.withgoogle.com/models/id9q5C1vu/";
+const URL = "https://teachablemachine.withgoogle.com/models/TwxqaNjwL/";
 
 let model, webcam, labelContainer, maxPredictions;
 
@@ -128,6 +146,10 @@ async function init() {
   const modelURL = URL + "model.json";
   const metadataURL = URL + "metadata.json";
 
+  // load the model and metadata
+  // Refer to tmImage.loadFromFiles() in the API to support files from a file picker
+  // or files from your local hard drive
+  // Note: the pose library adds "tmImage" object to your window (window.tmImage)
   model = await tmImage.load(modelURL, metadataURL);
   maxPredictions = model.getTotalClasses();
 
@@ -157,12 +179,12 @@ async function loop() {
 async function predict() {
   // predict can take in an image, video or canvas html element
   const prediction = await model.predict(webcam.canvas);
-  console.log("p", prediction[0].probability);
   if (prediction[0].probability > 0.8) {
     document.querySelector(".social").style.display = "flex";
-    document.querySelector(".good").style.display = "none";
+    document.querySelector(".thumbsUp").style.display = "none";
     webcam.stop();
   }
+
   for (let i = 0; i < maxPredictions; i++) {
     const classPrediction =
       prediction[i].className + ": " + prediction[i].probability.toFixed(2);
